@@ -26,8 +26,8 @@ jobs:
 
       # Publish
       - name: Build Projects and Publish on Version Change
-        id: publish_nuget
-        uses: niubilitytools/publish-nuget@v3.5.8
+        id: publish_nuget_xx
+        uses: niubilitytools/publish-to-nuget.org@v0.1
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: Core/Core.csproj
@@ -53,9 +53,9 @@ jobs:
           # TAG_FORMAT: v*
 
           # API key to authenticate with NuGet server
-          # NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
-          #  NuGet server uri hosting the packages, https://nuget.pkg.github.com or https://api.nuget.org. defaults to https://api.nuget.org
+          #  NuGet server uri hosting the packages, defaults to https://api.nuget.org
           # NUGET_SOURCE: https://api.nuget.org
 
           # Flag to toggle pushing symbols along with nuget package to the server,
@@ -66,12 +66,7 @@ jobs:
           # INCLUDE_SYMBOLS: false
           # Certificate file name (should be in root folder) to sign the package before upload
           # SIGNING_CERT_FILE_NAME: Core.cer
-
-          # Required for packages pushed to Github Package Registry. User allowed to push to repository, defaults to GITHUB_ACTOR (user that triggered the action) 
-          # GITHUB_USER: ${{ github.actor }}
-
-          # Github password, defaults to  NUGET_KEY
-          # GITHUB_PASSWORD: ${{ secrets.GithubPWD }}
+ 
 ```
 
 - Project gets published only if there's a `NUGET_KEY` configured in the repository

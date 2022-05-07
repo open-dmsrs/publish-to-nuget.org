@@ -103,10 +103,10 @@ class Action {
   _pushPackage(version, name) {
     core.info(`✨ found new version (${version}) of ${name}`)
 
-    if (this.sourceType == 'NuGet' && !this.nugetKey) {
-      core.warning('😢 NUGET_KEY not given')
-      return
-    }
+    // if (this.sourceType == 'NuGet' && !this.nugetKey) {
+    //   core.warning('😢 NUGET_KEY not given')
+    //   return
+    // }
 
     core.info(`NuGet Source: ${this.nugetSource}`)
 
@@ -159,6 +159,7 @@ class Action {
     core.info(`Package Name: ${this.packageName}`)
 
     let versionCheckUrl, options
+    // toLowerCase() for url  is resoving a bug of nuget
     versionCheckUrl = `${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json`.toLowerCase()
     options = {
       headers: {
@@ -177,9 +178,9 @@ class Action {
           res.on('end', () => {
             const existingVersions = JSON.parse(body)
             if (existingVersions.versions.indexOf(this.version) < 0) {
-              core.info(`Current version ${this.version} is not found in NuGet. Versions:${existingVersions.versions}`)
+              // core.info(`Current version ${this.version} is not found in NuGet. Versions:${existingVersions.versions}`)
               this._pushPackage(this.version, this.packageName)
-            } else core.info(`Found the version: ${this.nugetSource.replace('api.', '')}/packages/${this.packageName}/${this.version}`)
+            } else core.warning(`Stop pulishing, found the version on: ${this.nugetSource.replace('api.', '')}/packages/${this.packageName}/${this.version}`)
           })
         } else if (res.statusCode == 404) {
           core.warning(`Url '${versionCheckUrl}' is not available now or '${this.packageName}' was never uploaded on NuGet`)
