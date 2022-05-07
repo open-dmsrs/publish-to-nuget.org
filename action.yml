@@ -1,4 +1,4 @@
-name: Niubility Publish NuGet 
+name: Niubility Publish to NuGet.org
 author: Jimbo forked from Rohith Reddy (@rohith)
 description: Build, Pack & Publish a NuGet package with dotnet core on project version change
 
