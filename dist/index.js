@@ -1941,14 +1941,6 @@ module.exports = require("tls");
 "use strict";
 module.exports = require("util");
 
-/***/ }),
-
-/***/ 796:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("zlib");
-
 /***/ })
 
 /******/ 	});
@@ -1992,9 +1984,7 @@ module.exports = require("zlib");
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const { Z_FIXED } = __nccwpck_require__(796)
-
-const os = __nccwpck_require__(37),
+ const os = __nccwpck_require__(37),
   fs = __nccwpck_require__(147),
   path = __nccwpck_require__(17),
   https = __nccwpck_require__(687),

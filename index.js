@@ -1,6 +1,4 @@
-const { Z_FIXED } = require('zlib')
-
-const os = require('os'),
+ const os = require('os'),
   fs = require('fs'),
   path = require('path'),
   https = require('https'),
