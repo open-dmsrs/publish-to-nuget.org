@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "GitHub action to build, pack & publish nuget packages automatically when a project version is updated",
   "main": "index.js",
-  "dependencies": {},
   "devDependencies": {
-    "@actions/core": "^1.7.0",
+    "@actions/core": "^1.10.0",
     "@vercel/ncc": "^0.33.4"
   },
   "scripts": {
